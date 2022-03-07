@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use  App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +11,12 @@ use  App\Http\Controllers\AuthController;
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 //User Token Api
 Route::group([
 
     'middleware' => 'api',
-    'prefix' => 'auth'
+    'prefix' => 'auth',
 
 ], function ($router) {
 
@@ -28,13 +26,11 @@ Route::group([
     Route::post('me', 'AuthController@me');
 });
 
-
-
 //User APi
 Route::group(
     [
         'middleware' => 'api',
-        'prefix' => 'user'
+        'prefix' => 'user',
     ],
     function ($router) {
         Route::get('show', 'UserController@show');
@@ -45,14 +41,11 @@ Route::group(
     }
 );
 
-
-
-
 // Outlets Api
 Route::group(
     [
         'middleware' => 'api',
-        'prefix' => 'outlet'
+        'prefix' => 'outlet',
     ],
     function ($router) {
         Route::get('show', 'OutletController@show');
@@ -67,7 +60,7 @@ Route::group(
 Route::group(
     [
         'middleware' => 'api',
-        'prefix' => 'category'
+        'prefix' => 'category',
     ],
     function ($router) {
         Route::get('show', 'CategoryController@show');
